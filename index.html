@@ -2,87 +2,138 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Una Sorpresa para Nicole</title>
+  <title>Para Nicole</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
+      font-family: 'Playfair Display', serif;
       background: linear-gradient(to right, #fdf6f0, #f7e6dc);
-      color: #2f2f2f;
+      color: #2e2e2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 4rem 2rem;
+    .card {
+      background: #fff;
+      padding: 3rem 2rem;
+      max-width: 700px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
       text-align: center;
-      font-weight: normal;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
     }
 
     h2 {
-      text-align: center;
+      font-size: 1rem;
       font-weight: normal;
-      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 2rem;
       color: #666;
-      margin-top: 0;
-      margin-bottom: 3rem;
     }
 
-    .carta {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    p {
       font-size: 1.1rem;
       line-height: 1.8;
+      text-align: justify;
     }
 
-    .firma {
+    .buttons {
       margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    .btn {
+      font-family: 'Playfair Display', serif;
+      background-color: #a6795d;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #8f6048;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 1.5rem;
+      text-align: center;
+      font-style: italic;
+      color: #444;
+    }
+
+    .signature {
+      margin-top: 2rem;
       text-align: right;
       font-style: italic;
-    }
-
-    .sorpresa {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 1rem;
-      color: #888;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hola, Nicole</h1>
-    <h2>Esta página fue creada en secreto… solo para ti.</h2>
 
-    <div class="carta">
-      <p>
-        A veces las palabras no alcanzan para expresar lo que siento por ti. Por eso quise hacer algo diferente... algo que quedara en el tiempo, como nosotros.
-      </p>
-      <p>
-        Esta página vive en Internet, pero fue pensada con el corazón. No importa si el mundo cambia, si las modas pasan o si los años avanzan…  
-        mi amor por ti seguirá creciendo, línea por línea, como este pequeño rincón que te dedico.
-      </p>
-      <p>
-        No es solo una página. Es una promesa. La promesa de seguir sorprendiéndote, de seguir amándote, y de nunca dejar de recordarte lo especial que eres para mí.
-      </p>
+  <div class="card">
+    <h1>Para Nicole</h1>
+    <h2>De: Tu novio programador (Jherry Poves, tu futuro esposo)</h2>
 
-      <div class="firma">
-        Con amor eterno,<br>
-        Tu novio programador,<br>
-        Jherry Poves
-      </div>
+    <p>
+      Esta no es una carta cualquiera. Es una página escrita con cariño, pensada solo para ti.  
+      Porque tú eres la razón por la que sonrío sin motivo, por la que quiero ser mejor cada día.  
+      Nada de esto lo hizo una app, lo hice yo, con mis propias manos y corazón.
+    </p>
+
+    <p>
+      A veces las palabras se quedan cortas. Pero aun así, aquí estoy, tratando de que cada letra diga lo que siento:  
+      que te amo, que te admiro y que me haces feliz como nadie más lo ha hecho.
+    </p>
+
+    <div class="buttons">
+      <button class="btn" onclick="mostrarMensaje('1')">¿Me quieres?</button>
+      <button class="btn" onclick="mostrarMensaje('2')">¿Te sorprendí?</button>
+      <button class="btn" onclick="mostrarMensaje('3')">¿Quieres estar conmigo por siempre?</button>
     </div>
 
-    <div class="sorpresa">
-      (Shhh... esta fue una sorpresa. No se lo digas a nadie)
+    <div id="mensaje" class="hidden"></div>
+
+    <div class="signature">
+      Con todo mi amor,<br>
+      Jherry
     </div>
   </div>
+
+  <script>
+    function mostrarMensaje(opcion) {
+      const mensaje = document.getElementById('mensaje');
+      let texto = '';
+      if (opcion === '1') {
+        texto = 'Yo te quiero más, Nicole. No hay competencia aquí.';
+      } else if (opcion === '2') {
+        texto = 'Esa era la idea :) Me encanta verte feliz.';
+      } else if (opcion === '3') {
+        texto = 'Entonces prepárate, porque yo ya estoy construyendo ese "siempre" contigo.';
+      }
+      mensaje.innerText = texto;
+      mensaje.classList.remove('hidden');
+    }
+  </script>
+
 </body>
 </html>
